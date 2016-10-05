@@ -42,15 +42,15 @@ def tree(path, cnt, pad=''):
 		else:
 			print(pad + link2 + eachFile)
 
-	# for directories, print files within them
-	if os.path.isdir(child):
-		cnt["dirs"] = cnt["dirs"] + 1
-		if length == len(files):
-			tree(child, cnt, pad + pad1)
+		# for directories, print files within them
+		if os.path.isdir(child):
+			cnt["dirs"] = cnt["dirs"] + 1
+			if length == len(files):
+				tree(child, cnt, pad + pad1)
+			else:
+				tree(child, cnt, pad + pad2)
 		else:
-			tree(child, cnt, pad + pad2)
-	else:
-		cnt["files"] = cnt["files"] + 1
+			cnt["files"] = cnt["files"] + 1
 
 cnt = {"files": 0, "dirs": 0}
 
